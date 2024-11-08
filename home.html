@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shark Markets</title>
+    <link rel="stylesheet" href="./css/style.min.css" />
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- TOP NAV -->
+    <div class="topnav" id="myTopnav">
+      <a href="#home" class="top-nav-logo"
+        ><img src="./img/top-nav-logo.png" alt=""
+      /></a>
+      <div class="top-main-nav">
+        <a href="#index.html" class="active hide-mobile">Home</a>
+        <a href="#swap-SUSD" class="hide-mobile">Swap SUSD</a>
+        <a href="#earn-yield" class="hide-mobile">Earn Yield</a>
+        <a href="#analytics" class="hide-mobile">Analytics</a>
+        <a href="#DAO" class="hide-mobile">DAO</a>
+      </div>
+      <div class="top-buttons">
+        <a href="#aaaaa" class="top-cta quaternary-cta button"
+          ><img src="./img/logo-icon-white.svg" alt="" /> Buy CHUM</a
+        >
+        <a
+          href="#aaaaa"
+          class="top-cta primary-cta button"
+          id="connect-a-wallet"
+          ><img src="./img/atom-icon.svg" /> Connect</a
+        >
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="topNavMobile()">
+        <div class="container" onclick="hamburgerIcon(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </a>
+    </div>
+
+    <!-- MAIN COINTENT -->
+    <section class="main">
+      <div class="mobile-side-nav" id="mobile-side-nav">
+        <button href="#" class="open-panel" onclick="hamburgerIcon2(this)">
+          <div class="bars">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+        </button>
+        <ul class="mobile-side-list side-nav-list">
+          <li><a href="#">Dashboard</a></li>
+          <li class="active"><a href="#">Loan Offers</a></li>
+          <li><a href="#">Borrow</a></li>
+          <li><a href="#">My Loans</a></li>
+          <li><a href="#">My History</a></li>
+        </ul>
+      </div>
+      <section class="left-sidebar">
+        <div class="left-nav">
+          <ul class="side-nav-list">
+            <li><a href="#">Dashboard</a></li>
+            <li class="active"><a href="#">Loan Offers</a></li>
+            <li><a href="#">Borrow</a></li>
+            <li><a href="#">My Loans</a></li>
+            <li><a href="#">My History</a></li>
+          </ul>
+        </div>
+        <div class="need-help xl-view">
+          <h2>Need help?</h2>
+          <ul>
+            <li>
+              <a href=""
+                >Knowledge Base <img src="./img/share-icon.svg" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                >Terms & Conditions <img src="./img/share-icon.svg" alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="main-content">
+        <h2 class="title">Browse collateral assets</h2>
+        <p class="text">Select multiple assets to compare rates.</p>
+
+        <div class="content-table">
+          <div class="dropdown-section">
+            <div class="dropdown">
+              <div class="dropdown-btn" onclick="toggleDropdown()">
+                <div>Select Options</div>
+                <span class="arrow">&#9662;</span>
+              </div>
+              <div class="dropdown-content" id="dropdown-content">
+                <input
+                  type="text"
+                  class="dropdown-search"
+                  placeholder="Search & compare assets"
+                  oninput="filterOptions(this)"
+                />
+                <div class="clear-selection" onclick="clearSelection()">
+                  Clear selection <span>&times;</span>
+                </div>
+                <label class="dropdown-item">
+                  <span class="icon" style="background-color: #f7931a"></span>
+                  Wrapped Bitcoin
+                  <span style="margin-left: auto; color: #aaa">WBTC</span>
+                  <input type="checkbox" onclick="toggleOption(this)" />
+                </label>
+                <label class="dropdown-item">
+                  <span class="icon" style="background-color: #627eea"></span>
+                  Wrapped eETH
+                  <span style="margin-left: auto; color: #aaa">weETH</span>
+                  <input type="checkbox" onclick="toggleOption(this)" />
+                </label>
+                <label class="dropdown-item">
+                  <span class="icon" style="background-color: #2a5ada"></span>
+                  Arbitrum
+                  <span style="margin-left: auto; color: #aaa">ARB</span>
+                  <input type="checkbox" onclick="toggleOption(this)" />
+                </label>
+                <label class="dropdown-item">
+                  <span class="icon" style="background-color: #e84142"></span>
+                  Avalanche
+                  <span style="margin-left: auto; color: #aaa">AVAX</span>
+                  <input type="checkbox" onclick="toggleOption(this)" />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROWS -->
+          <div class="table-row">
+            <div class="row-section">
+              <div class="col-row">
+                <div class="top-icons">
+                  <div class="currency-icon">
+                    <img src="./img/bitcoin.svg" alt="" />
+                  </div>
+                  <div class="connected-icon">
+                    <img src="./img/_Dot.svg" /> SUSD Available
+                  </div>
+                </div>
+                <div class="asset-heading">
+                  <p class="heading-label">
+                    Collateral Asset
+                    <span><img src="./img/help-circle.svg" alt="" /></span>
+                  </p>
+                  <h2 class="asset-title">
+                    Wrapped Bitcoin <span class="asset-type">WBTC</span>
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="row-section">
+              <p class="heading-label">
+                Borrow SUSD From
+                <span><img src="./img/help-circle.svg" alt="" /></span>
+              </p>
+              <h3 class="asset-title title-space">
+                3% <span class="asset-type">APR</span>
+              </h3>
+              <p class="heading-label">
+                Max Loan-to-value (LTV)
+                <span><img src="./img/help-circle.svg" alt="" /></span>
+              </p>
+              <h3 class="asset-title title-space">76%</h3>
+            </div>
+            <div class="row-section row-sectio-two-cols">
+              <div class="row-info">
+                <p class="heading-label">
+                  Borrowed
+                  <span><img src="./img/help-circle.svg" alt="" /></span>
+                </p>
+                <h3 class="asset-title title-space">
+                  $12 Mn <span class="asset-type">SUSD</span>
+                </h3>
+                <p class="heading-label">
+                  Available
+                  <span><img src="./img/help-circle.svg" alt="" /></span>
+                </p>
+                <h3 class="asset-title title-space">
+                  $460 Mn <span class="asset-type">SUSD</span>
+                </h3>
+              </div>
+              <div class="row-ctas">
+                <a href="" class="button tertiary-cta">Details</a>
+                <a href="" class="button primary-cta">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-row">
+            <div class="row-section">
+              <div class="col-row">
+                <div class="top-icons">
+                  <div class="currency-icon">
+                    <img src="./img/eeth.svg" alt="" />
+                  </div>
+                  <div class="connected-icon">
+                    <img src="./img/_Dot.svg" /> SUSD Available
+                  </div>
+                </div>
+                <div class="asset-heading">
+                  <p class="heading-label">
+                    Collateral Asset
+                    <span><img src="./img/help-circle.svg" alt="" /></span>
+                  </p>
+                  <h2 class="asset-title">
+                    Wrapped eETH <span class="asset-type">weETH</span>
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="row-section">
+              <p class="heading-label">
+                Borrow SUSD From
+                <span><img src="./img/help-circle.svg" alt="" /></span>
+              </p>
+              <h3 class="asset-title title-space">
+                3% <span class="asset-type">APR</span>
+              </h3>
+              <p class="heading-label">
+                Max Loan-to-value (LTV)
+                <span><img src="./img/help-circle.svg" alt="" /></span>
+              </p>
+              <h3 class="asset-title title-space">76%</h3>
+            </div>
+            <div class="row-section row-sectio-two-cols">
+              <div class="row-info">
+                <p class="heading-label">
+                  Borrowed
+                  <span><img src="./img/help-circle.svg" alt="" /></span>
+                </p>
+                <h3 class="asset-title title-space">
+                  $12 Mn <span class="asset-type">SUSD</span>
+                </h3>
+                <p class="heading-label">
+                  Available
+                  <span><img src="./img/help-circle.svg" alt="" /></span>
+                </p>
+                <h3 class="asset-title title-space">
+                  $460 Mn <span class="asset-type">SUSD</span>
+                </h3>
+              </div>
+              <div class="row-ctas">
+                <a href="" class="button tertiary-cta">Details</a>
+                <a href="" class="button primary-cta">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-row">
+            <div class="row-section">
+              <div class="col-row">
+                <div class="top-icons">
+                  <div class="currency-icon">
+                    <img src="./img/arbitrum.svg" alt="" />
+                  </div>
+                  <div class="connected-icon">
+                    <img src="./img/_Dot.svg" /> SUSD Available
+                  </div>
+                </div>
+                <div class="asset-heading">
+                  <p class="heading-label">
+                    Collateral Asset
+                    <span><img src="./img/help-circle.svg" alt="" /></span>
+                  </p>
+                  <h2 class="asset-title">
+                    Arbitrum <span class="asset-type">ARB</span>
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="row-section">
+              <p class="heading-label">
+                Borrow SUSD From
+                <span><img src="./img/help-circle.svg" alt="" /></span>
+              </p>
+              <h3 class="asset-title title-space">
+                3% <span class="asset-type">APR</span>
+              </h3>
+              <p class="heading-label">
+                Max Loan-to-value (LTV)
+                <span><img src="./img/help-circle.svg" alt="" /></span>
+              </p>
+              <h3 class="asset-title title-space">76%</h3>
+            </div>
+            <div class="row-section row-sectio-two-cols">
+              <div class="row-info">
+                <p class="heading-label">
+                  Borrowed
+                  <span><img src="./img/help-circle.svg" alt="" /></span>
+                </p>
+                <h3 class="asset-title title-space">
+                  $12 Mn <span class="asset-type">SUSD</span>
+                </h3>
+                <p class="heading-label">
+                  Available
+                  <span><img src="./img/help-circle.svg" alt="" /></span>
+                </p>
+                <h3 class="asset-title title-space">
+                  $460 Mn <span class="asset-type">SUSD</span>
+                </h3>
+              </div>
+              <div class="row-ctas">
+                <a href="" class="button tertiary-cta">Details</a>
+                <a href="" class="button primary-cta">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-row">
+            <div class="row-section">
+              <div class="col-row">
+                <div class="top-icons">
+                  <div class="currency-icon">
+                    <img src="./img/avalanche.svg" alt="" />
+                  </div>
+                  <div class="connected-icon">
+                    <img src="./img/_Dot.svg" /> SUSD Available
+                  </div>
+                </div>
+                <div class="asset-heading">
+                  <p class="heading-label">
+                    Collateral Asset
+                    <span><img src="./img/help-circle.svg" alt="" /></span>
+                  </p>
+                  <h2 class="asset-title">
+                    Avalanche <span class="asset-type">AVAX</span>
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="row-section">
+              <p class="heading-label">
+                Borrow SUSD From
+                <span><img src="./img/help-circle.svg" alt="" /></span>
+              </p>
+              <h3 class="asset-title title-space">
+                3% <span class="asset-type">APR</span>
+              </h3>
+              <p class="heading-label">
+                Max Loan-to-value (LTV)
+                <span><img src="./img/help-circle.svg" alt="" /></span>
+              </p>
+              <h3 class="asset-title title-space">76%</h3>
+            </div>
+            <div class="row-section row-sectio-two-cols">
+              <div class="row-info">
+                <p class="heading-label">
+                  Borrowed
+                  <span><img src="./img/help-circle.svg" alt="" /></span>
+                </p>
+                <h3 class="asset-title title-space">
+                  $12 Mn <span class="asset-type">SUSD</span>
+                </h3>
+                <p class="heading-label">
+                  Available
+                  <span><img src="./img/help-circle.svg" alt="" /></span>
+                </p>
+                <h3 class="asset-title title-space">
+                  $460 Mn <span class="asset-type">SUSD</span>
+                </h3>
+              </div>
+              <div class="row-ctas">
+                <a href="" class="button tertiary-cta">Details</a>
+                <a href="" class="button primary-cta">Borrow</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <div class="need-help sm-view">
+      <h2>Need help?</h2>
+      <ul>
+        <li>
+          <a href=""
+            >Knowledge Base <img src="./img/share-icon.svg" alt=""
+          /></a>
+        </li>
+        <li>
+          <a href=""
+            >Terms & Conditions <img src="./img/share-icon.svg" alt=""
+          /></a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- WALLET MODAL -->
+    <div id="wallet-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <img src="./img/top-nav-logo.png" alt="" />
+        <h2 class="modal-title">Connect a wallet...</h2>
+        <p class="modal-text">Installed wallets</p>
+        <div class="wallet-option option-metatask">
+          <div class="wallet-item" id="metamask">
+            <img
+              src="./img/metatask-icon.svg"
+              alt="MetaMask"
+              class="wallet-icon"
+            />
+            <span>MetaMask</span>
+            <input type="checkbox" id="metamask-checkbox" checked />
+          </div>
+        </div>
+        <div class="wallet-option option-walletconnect">
+          <div class="wallet-item" id="walletconnect">
+            <img
+              src="./img/wallet-connect-icon.svg"
+              alt="WalletConnect"
+              class="wallet-icon"
+            />
+            <span>WalletConnect</span>
+            <input type="checkbox" id="walletconnect-checkbox" />
+          </div>
+        </div>
+        <button id="connect-button" class="primary-cta button">Connect</button>
+      </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>

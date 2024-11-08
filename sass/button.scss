@@ -1,0 +1,39 @@
+.button,
+a.button {
+  padding: 0 16px;
+  border-radius: 8px;
+  color: $color-text-primary;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+
+  img {
+    margin-right: 12px;
+  }
+
+  &.primary-cta {
+    background-color: $color-brand-primary;
+  }
+
+  &.tertiary-cta {
+    background-color: #011b1d;
+    border: solid 1px #738688;
+  }
+
+  &.quaternary-cta {
+    background-color: $color-brand-quaternary;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .button,
+  a.button {
+    padding: 0 8px;
+
+    img {
+      margin-right: 6px;
+    }
+  }
+}

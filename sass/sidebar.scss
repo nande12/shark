@@ -1,0 +1,139 @@
+.need-help {
+  padding: 0 16px;
+  margin: 0 16px;
+  display: flex;
+  flex-direction: column;
+
+  &.xl-view {
+    margin-top: auto;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  a {
+    display: flex;
+    font-size: 11px;
+    font-weight: 600;
+    color: #c6cdce;
+    margin-bottom: 16px;
+    width: 140px;
+    justify-content: space-between;
+    text-decoration: none;
+
+    img {
+      margin-left: 8px;
+    }
+  }
+}
+
+.left-sidebar {
+  display: none;
+}
+
+.mobile-side-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  position: relative;
+  z-index: 10;
+
+  .open-panel {
+    width: 60px;
+    height: 50px;
+    border-radius: 0 24px 24px 0;
+    border: none;
+    padding-right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: width 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+    background-color: $color-canvas-inverted;
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    background-color: $color-canvas;
+  }
+
+  .mobile-side-list {
+    position: absolute;
+    top: 50px;
+    background-color: $color-canvas;
+    width: 100%;
+    padding: 16px 0;
+    transform: translate(-100%, 0px);
+    transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+    border-bottom: solid 1px #738688;
+
+    li {
+      padding-left: 0;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &.responsive {
+    .mobile-side-list {
+      transform: translate(0px, 0px);
+    }
+
+    .open-panel {
+      width: 100%;
+    }
+  }
+}
+
+.side-nav-list {
+  li {
+    padding: 9px 0;
+    &.active {
+      position: relative;
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: $color-brand-tertiary;
+        top: 0;
+        left: 0;
+        width: 16px;
+        height: 40px;
+        border-radius: 0 8px 8px 0;
+      }
+
+      a {
+        background-color: $color-brand-tertiary;
+      }
+    }
+  }
+
+  a {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 9px 16px;
+    margin-left: 32px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .mobile-side-nav {
+    display: none;
+  }
+  .left-sidebar {
+    display: flex;
+    flex-direction: column;
+    padding-top: 48px;
+
+    .left-nav {
+      padding-bottom: 32px;
+    }
+  }
+}

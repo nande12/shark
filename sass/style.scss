@@ -1,0 +1,12 @@
+// RUN: `npm run minify`
+@import "css-reset";
+@import "variables";
+@import "general";
+
+// COMPONENTS
+@import "top-nav";
+@import "button";
+@import "sidebar";
+@import "multi-select";
+@import "table-row";
+@import "wallet-modal";

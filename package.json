@@ -1,0 +1,17 @@
+{
+  "name": "shark-loan",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "scss": "sass --watch sass/style.scss css/style.css",
+    "scss-no-source-map": "sass --watch --no-source-map sass/style.scss css/style.css",
+    "minify": "sass --watch sass/style.scss --style compressed css/style.min.css",
+    "minify-no-source-map": "sass --watch --no-source-map sass/style.scss --style compressed css/style.min.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "sass": "^1.80.6"
+  }
+}
