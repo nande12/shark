@@ -32,7 +32,7 @@
           ><img src="./img/logo-icon-white.svg" alt="" /> Buy CHUM</a
         >
         <a
-          href="#aaaaa"
+          href="#javascript:void(0);"
           class="top-cta primary-cta button"
           id="connect-a-wallet"
           ><img src="./img/atom-icon.svg" /> Connect</a
@@ -100,39 +100,47 @@
           <div class="dropdown-section">
             <div class="dropdown">
               <div class="dropdown-btn" onclick="toggleDropdown()">
-                <div>Select Options</div>
-                <span class="arrow">&#9662;</span>
+                <div class="search-container">
+                  <input
+                    type="text"
+                    class="dropdown-search"
+                    placeholder="Search & compare assets"
+                    oninput="filterOptions(this)"
+                    onclick="event.stopPropagation(); toggleDropdown(true);"
+                  />
+                  <span class="arrow"
+                    ><img src="./img/chevron-down.svg"
+                  /></span>
+                </div>
               </div>
               <div class="dropdown-content" id="dropdown-content">
-                <input
-                  type="text"
-                  class="dropdown-search"
-                  placeholder="Search & compare assets"
-                  oninput="filterOptions(this)"
-                />
-                <div class="clear-selection" onclick="clearSelection()">
+                <div
+                  class="clear-selection"
+                  id="clear-selection"
+                  onclick="clearSelection()"
+                >
                   Clear selection <span>&times;</span>
                 </div>
                 <label class="dropdown-item">
-                  <span class="icon" style="background-color: #f7931a"></span>
+                  <span class="icon"><img src="./img/bitcoin.svg" /></span>
                   Wrapped Bitcoin
                   <span style="margin-left: auto; color: #aaa">WBTC</span>
                   <input type="checkbox" onclick="toggleOption(this)" />
                 </label>
                 <label class="dropdown-item">
-                  <span class="icon" style="background-color: #627eea"></span>
+                  <span class="icon"><img src="./img/eeth.svg" /></span>
                   Wrapped eETH
                   <span style="margin-left: auto; color: #aaa">weETH</span>
                   <input type="checkbox" onclick="toggleOption(this)" />
                 </label>
                 <label class="dropdown-item">
-                  <span class="icon" style="background-color: #2a5ada"></span>
+                  <span class="icon"><img src="./img/arbitrum.svg" /></span>
                   Arbitrum
                   <span style="margin-left: auto; color: #aaa">ARB</span>
                   <input type="checkbox" onclick="toggleOption(this)" />
                 </label>
                 <label class="dropdown-item">
-                  <span class="icon" style="background-color: #e84142"></span>
+                  <span class="icon"><img src="./img/avalanche.svg" /></span>
                   Avalanche
                   <span style="margin-left: auto; color: #aaa">AVAX</span>
                   <input type="checkbox" onclick="toggleOption(this)" />

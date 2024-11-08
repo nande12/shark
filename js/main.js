@@ -23,21 +23,31 @@ function hamburgerIcon2(x) {
 }
 
 // MULTI SELECT
-function toggleDropdown() {
+function toggleDropdown(forceOpen = false) {
   const dropdownContent = document.getElementById("dropdown-content");
   const dropdownBtn = document.querySelector(".dropdown-btn");
+  const isActive = dropdownContent.classList.contains("show");
 
-  dropdownContent.classList.toggle("show");
-  dropdownBtn.classList.toggle("active");
+  if (forceOpen) {
+    dropdownContent.classList.add("show");
+    dropdownBtn.classList.add("active");
+  } else {
+    dropdownContent.classList.toggle("show", !isActive);
+    dropdownBtn.classList.toggle("active", !isActive);
+  }
 }
 
 function toggleOption(checkbox) {
   const item = checkbox.parentElement;
-  if (checkbox.checked) {
-    item.classList.add("checked");
-  } else {
-    item.classList.remove("checked");
-  }
+  const clearSelectionBtn = document.getElementById("clear-selection");
+  checkbox.checked
+    ? item.classList.add("checked")
+    : item.classList.remove("checked");
+
+  const anyChecked =
+    document.querySelectorAll('.dropdown-item input[type="checkbox"]:checked')
+      .length > 0;
+  clearSelectionBtn.classList.toggle("show", anyChecked);
 }
 
 function clearSelection() {
@@ -48,6 +58,7 @@ function clearSelection() {
     checkbox.checked = false;
     checkbox.parentElement.classList.remove("checked");
   });
+  document.getElementById("clear-selection").classList.remove("show");
 }
 
 function filterOptions(input) {
@@ -59,12 +70,14 @@ function filterOptions(input) {
   });
 }
 
-window.onclick = function (event) {
-  if (!event.target.closest(".dropdown")) {
+// Cerrar el dropdown al hacer clic fuera de él
+document.addEventListener("click", function (event) {
+  const dropdown = document.querySelector(".dropdown");
+  if (!dropdown.contains(event.target)) {
     document.getElementById("dropdown-content").classList.remove("show");
     document.querySelector(".dropdown-btn").classList.remove("active");
   }
-};
+});
 
 // WALLET MODAL
 
