@@ -51,6 +51,19 @@
   transform: translate(0, -11px) rotate(45deg);
 }
 
+.status-connected {
+  display: none !important;
+}
+
+.connected .status-connected {
+  display: inline-flex !important;
+  font-weight: 400 !important;
+}
+
+.connected .connect-cta {
+  display: none !important;
+}
+
 @media screen and (max-width: 1200px) {
   .topnav .hide-mobile {
     display: none;
@@ -64,17 +77,12 @@
     margin-top: 6px;
   }
 
-  .topnav a.icon .container {
-    position: relative;
-    right: 30px;
-  }
-
   .top-buttons {
     padding-top: 16px;
     display: inline-flex;
 
     .button {
-      font-size: 12px;
+      font-size: 10px;
     }
   }
 }

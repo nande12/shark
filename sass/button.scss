@@ -20,6 +20,10 @@ a.button {
   &.tertiary-cta {
     background-color: #011b1d;
     border: solid 1px #738688;
+
+    img {
+      width: 20px;
+    }
   }
 
   &.quaternary-cta {

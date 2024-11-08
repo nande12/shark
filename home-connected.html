@@ -14,7 +14,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class="connected">
     <!-- TOP NAV -->
     <div class="topnav" id="myTopnav">
       <a href="#home" class="top-nav-logo"
@@ -37,7 +37,10 @@
           id="connect-a-wallet"
           ><img src="./img/atom-icon.svg" /> Connect</a
         >
-        <a href="#" class="top-cta tertiary-cta button status-connected"
+        <a
+          href="#"
+          class="top-cta tertiary-cta button status-connected"
+          id="dismiss-all"
           ><img src="./img/metatask-icon.svg" /> 0xd1...75b4</a
         >
       </div>
@@ -442,6 +445,43 @@
           </div>
         </div>
         <button id="connect-button" class="primary-cta button">Connect</button>
+      </div>
+    </div>
+
+    <!-- Dismiss All MODAL -->
+    <div id="dismiss-modal" class="modal dismiss-modal">
+      <div class="modal-content">
+        <span class="close-button-dismiss"
+          >Dismiss all <span><img src="./img/x-close.svg" alt="" /></span
+        ></span>
+
+        <div class="connected-item">
+          <div class="connected-icons">
+            <div class="status-connected">
+              <img src="./img/connected-green-icon.svg" />
+            </div>
+            <div class="status-connected-close">
+              <img src="./img/x-close.svg" />
+            </div>
+          </div>
+          <h2 class="status-title">Wallet connected</h2>
+          <p class="status-description">
+            You’re ready to borrow SUSD or manage your existing loans.
+          </p>
+        </div>
+
+        <div class="connected-item not-connected">
+          <div class="connected-icons">
+            <div class="status-connected">
+              <img src="./img/disconnected-red-icon.svg" />
+            </div>
+            <div class="status-connected-close">
+              <img src="./img/x-close.svg" />
+            </div>
+          </div>
+          <h2 class="status-title">Wallet connection failed</h2>
+          <p class="status-description">Please try again.</p>
+        </div>
       </div>
     </div>
 

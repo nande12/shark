@@ -87,3 +87,66 @@
     min-width: 480px;
   }
 }
+
+// DISMISS MODAL
+
+.dismiss-modal {
+  max-width: 407px;
+  min-height: 364px;
+  height: auto;
+  right: 0;
+  left: auto;
+  background-color: rgba(1, 16, 18, 0.7);
+  backdrop-filter: blur(8px);
+  top: 73px;
+  z-index: 11;
+  align-items: flex-start;
+
+  .modal-content {
+    min-width: 100%;
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  .close-button-dismiss {
+    display: flex;
+    justify-content: end;
+    color: #738688;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    cursor: pointer;
+
+    span {
+      margin-left: 8px;
+    }
+  }
+
+  .connected-item {
+    background-color: #011b1d;
+    border: solid 1px #5ad205;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+
+    &.not-connected {
+      border: solid 1px #d21605;
+    }
+
+    .connected-icons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .status-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .status-description {
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+}

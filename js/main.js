@@ -111,3 +111,29 @@ window.onclick = function (event) {
     closeModal();
   }
 };
+
+// DISMISS ALL MODAL
+const connectDismissButton = document.getElementById("dismiss-all");
+const dismissModal = document.getElementById("dismiss-modal");
+const closeButtonDismiss = document.querySelector(".close-button-dismiss");
+
+// Function to open the modal
+function openModalDismiss() {
+  dismissModal.style.display = "flex";
+}
+
+// Function to close the modal
+function closeModalDismiss() {
+  dismissModal.style.display = "none";
+}
+
+// Event Listeners
+connectDismissButton.addEventListener("click", openModalDismiss);
+closeButtonDismiss.addEventListener("click", closeModalDismiss);
+
+// Close the modal if clicked outside the content
+window.onclick = function (event) {
+  if (event.target == dismissModal) {
+    closeModalDismiss();
+  }
+};
