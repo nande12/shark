@@ -1,9 +1,11 @@
 function topNavMobile() {
   var myTopnav = document.getElementById("myTopnav");
-  if (myTopnav.className === "topnav") {
-    myTopnav.className += " responsive";
-  } else {
-    myTopnav.className = "topnav";
+  if (myTopnav) {
+    if (myTopnav.className === "topnav") {
+      myTopnav.className += " responsive";
+    } else {
+      myTopnav.className = "topnav";
+    }
   }
 }
 
@@ -23,60 +25,74 @@ function hamburgerIcon2(x) {
 }
 
 // MULTI SELECT
-function toggleDropdown(forceOpen = false) {
-  const dropdownContent = document.getElementById("dropdown-content");
-  const dropdownBtn = document.querySelector(".dropdown-btn");
-  const isActive = dropdownContent.classList.contains("show");
+// Manejar apertura y cierre al hacer clic o focus en el campo de búsqueda
+document.querySelectorAll(".dropdown").forEach((dropdown) => {
+  const btn = dropdown.querySelector(".dropdown-btn");
+  const searchInput = dropdown.querySelector(".dropdown-search");
+  const content = dropdown.querySelector(".dropdown-content");
+  const clearSelectionBtn = dropdown.querySelector(".clear-selection");
+  const items = dropdown.querySelectorAll(".dropdown-item");
 
-  if (forceOpen) {
-    dropdownContent.classList.add("show");
-    dropdownBtn.classList.add("active");
-  } else {
-    dropdownContent.classList.toggle("show", !isActive);
-    dropdownBtn.classList.toggle("active", !isActive);
-  }
-}
+  const toggleDropdown = () => {
+    const isOpen = content.classList.contains("show");
+    document.querySelectorAll(".dropdown-content").forEach((dropdown) => {
+      dropdown.classList.remove("show");
+    });
+    content.classList.toggle("show", !isOpen);
+    btn.classList.toggle("active", !isOpen);
+  };
 
-function toggleOption(checkbox) {
-  const item = checkbox.parentElement;
-  const clearSelectionBtn = document.getElementById("clear-selection");
-  checkbox.checked
-    ? item.classList.add("checked")
-    : item.classList.remove("checked");
+  btn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleDropdown();
+    searchInput.focus();
+  });
 
-  const anyChecked =
-    document.querySelectorAll('.dropdown-item input[type="checkbox"]:checked')
-      .length > 0;
-  clearSelectionBtn.classList.toggle("show", anyChecked);
-}
+  searchInput.addEventListener("focus", (event) => {
+    event.stopPropagation();
+    content.classList.add("show");
+    btn.classList.add("active");
+  });
 
-function clearSelection() {
-  const checkboxes = document.querySelectorAll(
-    ".dropdown-item input[type='checkbox']"
-  );
+  // Filtrar las opciones según el texto ingresado en el campo de búsqueda
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    items.forEach((item) => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(query) ? "flex" : "none";
+    });
+  });
+
+  // Clear Selection
+  clearSelectionBtn.addEventListener("click", () => {
+    const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+    clearSelectionBtn.classList.remove("show");
+  });
+
+  // Mostrar "Clear Selection" si hay opciones seleccionadas
+  const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach((checkbox) => {
-    checkbox.checked = false;
-    checkbox.parentElement.classList.remove("checked");
+    checkbox.addEventListener("change", () => {
+      const anyChecked = Array.from(checkboxes).some((cb) => cb.checked);
+      clearSelectionBtn.classList.toggle("show", anyChecked);
+    });
   });
-  document.getElementById("clear-selection").classList.remove("show");
-}
+});
 
-function filterOptions(input) {
-  const filter = input.value.toLowerCase();
-  const items = document.querySelectorAll(".dropdown-item");
-  items.forEach((item) => {
-    const text = item.textContent.toLowerCase();
-    item.style.display = text.includes(filter) ? "flex" : "none";
+// Cerrar dropdown al hacer clic fuera
+document.addEventListener("click", (event) => {
+  document.querySelectorAll(".dropdown-content").forEach((content) => {
+    if (!content.closest(".dropdown").contains(event.target)) {
+      content.classList.remove("show");
+      content
+        .closest(".dropdown")
+        .querySelector(".dropdown-btn")
+        .classList.remove("active");
+    }
   });
-}
-
-// Cerrar el dropdown al hacer clic fuera de él
-document.addEventListener("click", function (event) {
-  const dropdown = document.querySelector(".dropdown");
-  if (!dropdown.contains(event.target)) {
-    document.getElementById("dropdown-content").classList.remove("show");
-    document.querySelector(".dropdown-btn").classList.remove("active");
-  }
 });
 
 // WALLET MODAL

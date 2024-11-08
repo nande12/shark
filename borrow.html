@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shark Markets - Borrow</title>
+    <link rel="stylesheet" href="./css/style.min.css" />
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- TOP NAV -->
+    <div class="topnav" id="myTopnav">
+      <a href="#home" class="top-nav-logo"
+        ><img src="./img/top-nav-logo.png" alt=""
+      /></a>
+      <div class="top-main-nav">
+        <a href="#index.html" class="active hide-mobile">Home</a>
+        <a href="#swap-SUSD" class="hide-mobile">Swap SUSD</a>
+        <a href="#earn-yield" class="hide-mobile">Earn Yield</a>
+        <a href="#analytics" class="hide-mobile">Analytics</a>
+        <a href="#DAO" class="hide-mobile">DAO</a>
+      </div>
+      <div class="top-buttons">
+        <a href="#aaaaa" class="top-cta quaternary-cta button"
+          ><img src="./img/logo-icon-white.svg" alt="" /> Buy CHUM</a
+        >
+        <a
+          href="#javascript:void(0);"
+          class="top-cta primary-cta button connect-cta"
+          id="connect-a-wallet"
+          ><img src="./img/atom-icon.svg" /> Connect</a
+        >
+        <a href="#" class="top-cta tertiary-cta button status-connected"
+          ><img src="./img/metatask-icon.svg" /> 0xd1...75b4</a
+        >
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="topNavMobile()">
+        <div class="container" onclick="hamburgerIcon(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </a>
+    </div>
+
+    <!-- MAIN COINTENT -->
+    <section class="main">
+      <div class="mobile-side-nav" id="mobile-side-nav">
+        <button href="#" class="open-panel" onclick="hamburgerIcon2(this)">
+          <div class="bars">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+        </button>
+        <ul class="mobile-side-list side-nav-list">
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Loan Offers</a></li>
+          <li class="active"><a href="#">Borrow</a></li>
+          <li><a href="#">My Loans</a></li>
+          <li><a href="#">My History</a></li>
+        </ul>
+      </div>
+      <section class="left-sidebar">
+        <div class="left-nav">
+          <ul class="side-nav-list">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Loan Offers</a></li>
+            <li class="active"><a href="#">Borrow</a></li>
+            <li><a href="#">My Loans</a></li>
+            <li><a href="#">My History</a></li>
+          </ul>
+        </div>
+        <div class="need-help xl-view">
+          <h2>Need help?</h2>
+          <ul>
+            <li>
+              <a href=""
+                >Knowledge Base <img src="./img/share-icon.svg" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href=""
+                >Terms & Conditions <img src="./img/share-icon.svg" alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="main-content">
+        <h2 class="title">Setup and simulate your loan</h2>
+        <p class="text">Adjust the settings to find the best deal.</p>
+
+        <div class="content-table">
+          <!-- ROWS -->
+          <div class="table-row">
+            <div class="row-section">
+              <div class="col-row">
+                <div class="top-icons">
+                  <div class="currency-icon">
+                    <img src="./img/bitcoin.svg" alt="" />
+                  </div>
+                  <div class="connected-icon">
+                    <img src="./img/_Dot.svg" /> SUSD Available
+                  </div>
+                </div>
+                <div class="asset-heading">
+                  <p class="heading-label">
+                    Collateral Asset
+                    <span><img src="./img/help-circle.svg" alt="" /></span>
+                  </p>
+                  <h2 class="asset-title">
+                    Wrapped Bitcoin <span class="asset-type">WBTC</span>
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="row-section">
+              <p class="heading-label">
+                Borrow SUSD From
+                <span><img src="./img/help-circle.svg" alt="" /></span>
+              </p>
+              <h3 class="asset-title title-space">
+                3% <span class="asset-type">APR</span>
+              </h3>
+              <p class="heading-label">
+                Max Loan-to-value (LTV)
+                <span><img src="./img/help-circle.svg" alt="" /></span>
+              </p>
+              <h3 class="asset-title title-space">76%</h3>
+            </div>
+            <div class="row-section row-sectio-two-cols">
+              <div class="row-info">
+                <p class="heading-label">
+                  Borrowed
+                  <span><img src="./img/help-circle.svg" alt="" /></span>
+                </p>
+                <h3 class="asset-title title-space">
+                  $12 Mn <span class="asset-type">SUSD</span>
+                </h3>
+                <p class="heading-label">
+                  Available
+                  <span><img src="./img/help-circle.svg" alt="" /></span>
+                </p>
+                <h3 class="asset-title title-space">
+                  $460 Mn <span class="asset-type">SUSD</span>
+                </h3>
+              </div>
+              <div class="row-ctas">
+                <a href="" class="button tertiary-cta">Details</a>
+                <a href="" class="button primary-cta">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- LOAN SETUP -->
+          <div class="loan-setup">
+            <div class="edit-loan-box">
+              <div class="edit-loan-main">
+                <h2 class="gradient-title arrow-approach">
+                  Edit loan setup here
+                </h2>
+
+                <p class="info-label">Deposit</p>
+                <div class="info-field">
+                  <h3 class="asset-title">
+                    1.0 <span class="asset-type">WBTC</span>
+                  </h3>
+                  <div class="edit-button" id="deposit-trigger">
+                    <img src="./img/edit.svg" alt="edit deposit" />
+                  </div>
+                </div>
+
+                <p class="info-label">To borrow</p>
+                <div class="info-field">
+                  <h3 class="asset-title">
+                    40,000 <span class="asset-type">SUSD</span>
+                  </h3>
+                  <div class="edit-button" id="deposit-trigger">
+                    <img src="./img/edit.svg" alt="edit deposit" />
+                  </div>
+                </div>
+
+                <p class="info-label">Deposit</p>
+                <div class="info-field">
+                  <h3 class="asset-title">
+                    360 <span class="asset-type">Days</span>
+                  </h3>
+                  <div class="edit-button" id="deposit-trigger">
+                    <img src="./img/edit.svg" alt="edit deposit" />
+                  </div>
+                </div>
+
+                <div class="footer-box">
+                  <div class="toggle-container">
+                    <label class="toggle-switch">
+                      <input type="checkbox" class="toggle-input" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+
+                  <div class="toggle-text">
+                    <h3 class="toggle-title">With preferential terms</h3>
+                    <p class="toggle-description">
+                      This will require you to lock $CHUM.
+                    </p>
+                  </div>
+
+                  <div><img src="./img/help-circle.svg" /></div>
+                </div>
+              </div>
+              cajas escondidas acá?......????
+            </div>
+
+            <div class="simulation-box"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <div class="need-help sm-view">
+      <h2>Need help?</h2>
+      <ul>
+        <li>
+          <a href=""
+            >Knowledge Base <img src="./img/share-icon.svg" alt=""
+          /></a>
+        </li>
+        <li>
+          <a href=""
+            >Terms & Conditions <img src="./img/share-icon.svg" alt=""
+          /></a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- WALLET MODAL -->
+    <div id="wallet-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <img src="./img/top-nav-logo.png" alt="" />
+        <h2 class="modal-title">Connect a wallet...</h2>
+        <p class="modal-text">Installed wallets</p>
+        <div class="wallet-option option-metatask">
+          <div class="wallet-item" id="metamask">
+            <img
+              src="./img/metatask-icon.svg"
+              alt="MetaMask"
+              class="wallet-icon"
+            />
+            <span>MetaMask</span>
+            <input type="checkbox" id="metamask-checkbox" checked />
+          </div>
+        </div>
+        <div class="wallet-option option-walletconnect">
+          <div class="wallet-item" id="walletconnect">
+            <img
+              src="./img/wallet-connect-icon.svg"
+              alt="WalletConnect"
+              class="wallet-icon"
+            />
+            <span>WalletConnect</span>
+            <input type="checkbox" id="walletconnect-checkbox" />
+          </div>
+        </div>
+        <button id="connect-button" class="primary-cta button">Connect</button>
+      </div>
+    </div>
+
+    <!-- Dismiss All MODAL -->
+    <div id="dismiss-modal" class="modal dismiss-modal">
+      <div class="modal-content">
+        <span class="close-button-dismiss"
+          >Dismiss all <span><img src="./img/x-close.svg" alt="" /></span
+        ></span>
+
+        <div class="connected-item">
+          <div class="connected-icons">
+            <div class="status-connected">
+              <img src="./img/connected-green-icon.svg" />
+            </div>
+            <div class="status-connected-close">
+              <img src="./img/x-close.svg" />
+            </div>
+          </div>
+          <h2 class="status-title">Wallet connected</h2>
+          <p class="status-description">
+            You’re ready to borrow SUSD or manage your existing loans.
+          </p>
+        </div>
+
+        <div class="connected-item not-connected">
+          <div class="connected-icons">
+            <div class="status-connected">
+              <img src="./img/disconnected-red-icon.svg" />
+            </div>
+            <div class="status-connected-close">
+              <img src="./img/x-close.svg" />
+            </div>
+          </div>
+          <h2 class="status-title">Wallet connection failed</h2>
+          <p class="status-description">Please try again.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>

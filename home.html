@@ -445,6 +445,43 @@
       </div>
     </div>
 
+    <!-- Dismiss All MODAL -->
+    <div id="dismiss-modal" class="modal dismiss-modal">
+      <div class="modal-content">
+        <span class="close-button-dismiss"
+          >Dismiss all <span><img src="./img/x-close.svg" alt="" /></span
+        ></span>
+
+        <div class="connected-item">
+          <div class="connected-icons">
+            <div class="status-connected">
+              <img src="./img/connected-green-icon.svg" />
+            </div>
+            <div class="status-connected-close">
+              <img src="./img/x-close.svg" />
+            </div>
+          </div>
+          <h2 class="status-title">Wallet connected</h2>
+          <p class="status-description">
+            You’re ready to borrow SUSD or manage your existing loans.
+          </p>
+        </div>
+
+        <div class="connected-item not-connected">
+          <div class="connected-icons">
+            <div class="status-connected">
+              <img src="./img/disconnected-red-icon.svg" />
+            </div>
+            <div class="status-connected-close">
+              <img src="./img/x-close.svg" />
+            </div>
+          </div>
+          <h2 class="status-title">Wallet connection failed</h2>
+          <p class="status-description">Please try again.</p>
+        </div>
+      </div>
+    </div>
+
     <script src="./js/main.js"></script>
   </body>
 </html>

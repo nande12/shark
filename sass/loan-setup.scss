@@ -1,0 +1,58 @@
+// TOGGLE
+/* Styling for the toggle container */
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling the toggle switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide the default checkbox */
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Styling for the slider (the actual toggle) */
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+/* Create the circle inside the toggle */
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+/* When the toggle is checked */
+.toggle-input:checked + .toggle-slider {
+  background-color: #4caf50;
+}
+
+/* Move the circle when the toggle is checked */
+.toggle-input:checked + .toggle-slider::before {
+  transform: translateX(26px);
+}
