@@ -1,58 +1,421 @@
+.loan-setup {
+  display: flex;
+  flex-direction: column;
+
+  .edit-loan-box {
+    max-width: 345px;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 0;
+    min-height: 506px;
+  }
+
+  .simulation-box {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  // EDIT FUNCTIONALITY STYLES
+  .container-boxes {
+    width: 300px;
+    text-align: center;
+  }
+
+  .initial-box,
+  .edit-box {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .edit-box.active,
+  .initial-box.active {
+    display: flex;
+    opacity: 1;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .button {
+    cursor: pointer;
+  }
+
+  .loan-cta-container {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: solid 1px #738688;
+  }
+
+  .edit-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+  }
+
+  .save-btn {
+    border: none;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .tab-content {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .slider {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .slider2 {
+    background-color: #f39c12;
+  }
+
+  // ELEMENT STYLES
+  .info-label {
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #c6cdce;
+    display: flex;
+
+    img {
+      margin-left: 8px;
+    }
+  }
+
+  .info-field {
+    border: solid 1px #738688;
+    box-shadow: 2px 2px 2px 0px rgba(198, 205, 206, 0.25);
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .asset-title {
+      margin: 0;
+    }
+
+    .edit-button {
+      padding: 0;
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+  .footer-box {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .toggle-text {
+    margin-left: 12px;
+    width: 100%;
+
+    .toggle-title {
+      margin-top: 0;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .toggle-description {
+      color: #c6cdce;
+      font-size: 11px;
+      font-weight: 400;
+    }
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 51px;
+  margin-bottom: 20px;
+
+  /* Estilos del input */
+  input {
+    width: 100%;
+    height: 51px;
+    padding-right: 60px; /* Espacio para el texto "WBTC" */
+    background-color: #011b1d;
+    border: 1px solid #738688;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 18px;
+    outline: none;
+    padding-left: 10px;
+
+    &::placeholder {
+      color: #ffffff;
+    }
+  }
+
+  /* Estilo del texto "WBTC" */
+  .crypto-label {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #738688;
+    font-size: 18px;
+    pointer-events: none; /* Hace que el texto no sea clicable/editable */
+  }
+
+  /* Quitar los estilos de spinner del input number */
+  input::-webkit-inner-spin-button,
+  input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+//element styles
+.gradient-title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 2px;
+  box-sizing: border-box;
+  margin-bottom: 20px !important;
+
+  $border: 2px;
+  color: #fff;
+  background: #090305;
+  background-clip: padding-box; /* !importanté */
+  border: solid $border transparent; /* !importanté */
+  border-radius: 10px;
+  margin: 0;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    border-radius: inherit; /* !importanté */
+    background: linear-gradient(93deg, #935804 2.17%, #05c1d2 95.13%);
+  }
+
+  .gradient-title-span {
+    position: relative;
+    z-index: 2;
+    background: #090305;
+    border-radius: 10px;
+    padding: 16px 14px;
+    width: 100%;
+    font-size: 29px;
+    font-weight: 500;
+  }
+
+  span {
+    background: 090305;
+    background: linear-gradient(93deg, #935804 2.17%, #05c1d2 95.13%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &.arrow-approach {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 12px;
+      bottom: -33px;
+      width: 33px;
+      height: 34px;
+      background-repeat: no-repeat;
+      background-image: url("../img/triangle.svg");
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .loan-setup {
+    flex-direction: row;
+
+    .simulation-box {
+      margin-left: 36px;
+      margin-top: 0;
+    }
+  }
+}
+
 // TOGGLE
 /* Styling for the toggle container */
 .toggle-container {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* Styling the toggle switch */
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+  }
+
+  /* Hide the default checkbox */
+  .toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* Styling for the slider (the actual toggle) */
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #738688;
+    border-radius: 34px;
+    transition: 0.4s;
+  }
+
+  /* Create the circle inside the toggle */
+  .toggle-slider::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    left: 3px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+  }
+
+  /* When the toggle is checked */
+  .toggle-input:checked + .toggle-slider {
+    background-color: #05c1d2;
+  }
+
+  /* Move the circle when the toggle is checked */
+  .toggle-input:checked + .toggle-slider::before {
+    transform: translateX(19px);
+  }
 }
 
-/* Styling the toggle switch */
-.toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+//SLIDER
+/* Estilo general del slider */
+.slider {
+  -webkit-appearance: none; /* Elimina el estilo predeterminado del navegador */
+  width: 100%;
+  height: 8px;
+  background: #05c1d2; /* Fondo de la barra (tracker) de color verde */
+  border-radius: 5px;
+  outline: none; /* Quita el borde azul al hacer clic */
 }
 
-/* Hide the default checkbox */
-.toggle-input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* Styling for the slider (the actual toggle) */
-.toggle-slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  border-radius: 34px;
-  transition: 0.4s;
-}
-
-/* Create the circle inside the toggle */
-.toggle-slider::before {
-  content: "";
-  position: absolute;
-  height: 26px;
-  width: 26px;
+/* Estilo del thumb (control deslizante) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ffffff; /* Color blanco */
+  border: 2px solid #05c1d2; /* Borde azul sólido de 1px */
   border-radius: 50%;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+  position: relative;
+  top: -6px;
 }
 
-/* When the toggle is checked */
-.toggle-input:checked + .toggle-slider {
-  background-color: #4caf50;
+/* Estilo del thumb en Firefox */
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #ffffff; /* Color blanco */
+  border: 1px solid #007bff; /* Borde azul sólido de 1px */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
 }
 
-/* Move the circle when the toggle is checked */
-.toggle-input:checked + .toggle-slider::before {
-  transform: translateX(26px);
+/* Estilo de la barra antes del thumb (progreso) */
+.slider::-webkit-slider-runnable-track {
+  background: #05c1d2; /* Fondo de la barra (tracker) de color verde */
+  border-radius: 5px;
+  height: 8px;
+}
+
+/* Estilo de la barra antes del thumb en Firefox */
+.slider::-moz-range-track {
+  background: #05c1d2; /* Fondo de la barra (tracker) de color verde */
+  border-radius: 5px;
+  height: 8px;
+}
+
+/* Estilo de la barra activa en Edge y otros navegadores que soportan estilos completos */
+.slider::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 6px 0;
+  color: transparent;
+  width: 100%;
+  height: 8px;
+}
+
+// TABS
+.tabs {
+  display: flex;
+  width: 100%;
+  border: solid 1px #738688;
+  background-color: #011b1d;
+  border-radius: 8px;
+
+  .tab-btn {
+    width: 50%;
+    height: 40px;
+    border: none;
+    background-color: #011b1d;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+
+    &:first-child {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    &.active {
+      background-color: #05c1d2;
+      color: #090305;
+    }
+  }
+}
+
+.slider-dafault-values {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  span {
+    color: #6edbe5;
+    font-size: 18px;
+    font-weight: 600;
+  }
 }

@@ -2,6 +2,10 @@
   padding-bottom: 20px;
   border-bottom: solid 1px #738688;
   margin-bottom: 20px;
+
+  &.no-border {
+    border: none;
+  }
 }
 
 .dropdown {
@@ -63,10 +67,16 @@
   background-color: #090305;
   border-radius: 8px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  max-height: 300px;
+  max-height: 200px;
   overflow-y: auto;
   z-index: 10;
   color: #ddd;
+
+  &.no-img {
+    input[type="checkbox"] {
+      margin-left: auto;
+    }
+  }
 }
 
 .dropdown-content.show {

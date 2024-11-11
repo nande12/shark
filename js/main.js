@@ -1,3 +1,5 @@
+// NAVs - mobile
+////////////////////////////////////////
 function topNavMobile() {
   var myTopnav = document.getElementById("myTopnav");
   if (myTopnav) {
@@ -25,6 +27,7 @@ function hamburgerIcon2(x) {
 }
 
 // MULTI SELECT
+////////////////////////////////////////
 // Manejar apertura y cierre al hacer clic o focus en el campo de búsqueda
 document.querySelectorAll(".dropdown").forEach((dropdown) => {
   const btn = dropdown.querySelector(".dropdown-btn");
@@ -96,7 +99,7 @@ document.addEventListener("click", (event) => {
 });
 
 // WALLET MODAL
-
+////////////////////////////////////////
 // Getting modal elements
 const connectWalletButton = document.getElementById("connect-a-wallet");
 const walletModal = document.getElementById("wallet-modal");
@@ -129,6 +132,7 @@ window.onclick = function (event) {
 };
 
 // DISMISS ALL MODAL
+////////////////////////////////////////
 const connectDismissButton = document.getElementById("dismiss-all");
 const dismissModal = document.getElementById("dismiss-modal");
 const closeButtonDismiss = document.querySelector(".close-button-dismiss");
@@ -144,8 +148,12 @@ function closeModalDismiss() {
 }
 
 // Event Listeners
-connectDismissButton.addEventListener("click", openModalDismiss);
-closeButtonDismiss.addEventListener("click", closeModalDismiss);
+if (connectDismissButton) {
+  connectDismissButton.addEventListener("click", openModalDismiss);
+}
+if (closeButtonDismiss) {
+  closeButtonDismiss.addEventListener("click", closeModalDismiss);
+}
 
 // Close the modal if clicked outside the content
 window.onclick = function (event) {
@@ -153,3 +161,61 @@ window.onclick = function (event) {
     closeModalDismiss();
   }
 };
+
+// LOAN BOXES
+////////////////////////////////
+// Función para abrir la caja de edición
+function openEditBox(boxNumber) {
+  // Ocultar la caja inicial
+  document.getElementById("initialBox").classList.remove("active");
+
+  // Mostrar la caja de edición correspondiente
+  document.getElementById("editBox" + boxNumber).classList.add("active");
+
+  // Si es la caja 2, mostrar el primer tab
+  if (boxNumber === 2) {
+    showTab(1);
+  }
+}
+
+// Función para cerrar la caja de edición
+function closeEditBox() {
+  // Ocultar todas las cajas de edición
+  const editBoxes = document.querySelectorAll(".edit-box");
+  editBoxes.forEach((box) => box.classList.remove("active"));
+
+  // Volver a mostrar la caja inicial
+  document.getElementById("initialBox").classList.add("active");
+}
+
+// Función para mostrar el tab seleccionado
+function showTab(tabNumber) {
+  // Ocultar todos los tabs
+  const tabs = document.querySelectorAll(".tab-content");
+  const tabBTN = document.querySelectorAll(".tab-btn");
+  tabs.forEach((tab) => tab.classList.remove("active"));
+  tabBTN.forEach((tab) => tab.classList.remove("active"));
+
+  // Mostrar el tab correspondiente
+  document.getElementById("tab" + tabNumber).classList.add("active");
+  document.getElementById("tab-btn" + tabNumber).classList.add("active");
+}
+
+// Función para actualizar el valor del slider 1
+if (document.getElementById("slider1")) {
+  document.getElementById("slider1").addEventListener("input", function () {
+    document.getElementById("sliderValue1").value = this.value;
+  });
+}
+
+// Función para actualizar el valor del slider 2
+if (document.getElementById("slider2")) {
+  document.getElementById("slider2").addEventListener("input", function () {
+    document.getElementById("sliderValue2").value = this.value;
+  });
+}
+
+// Inicializar la caja inicial
+if (document.getElementById("initialBox")) {
+  document.getElementById("initialBox").classList.add("active");
+}
