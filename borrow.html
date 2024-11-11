@@ -499,8 +499,56 @@
             <div class="simulation-box table-row less-padding">
               <div class="step-container">
                 <div class="step" id="step1">
-                  <h2>Caja 1</h2>
-                  <p>Contenido de la caja 1</p>
+                  <div class="sim-main">
+                    <p class="heading-label">
+                      Simulation Results
+                      <span><img src="./img/help-circle.svg" alt="" /></span>
+                    </p>
+                    <h2 class="asset-title">LTV Summary</h2>
+
+                    <div class="pro-tip">
+                      <h2 class="gradient-title">
+                        <div class="gradient-title-span">
+                          <span>Pro tip:</span>
+                        </div>
+                        <p class="pro-tip-desc">
+                          Increase collateral or decrease borrow amount to
+                          reduce risk.
+                        </p>
+                      </h2>
+                    </div>
+                  </div>
+                  <div class="sim-secondary">
+                    <div class="progress-container">
+                      <div class="outer-circle">
+                        <div class="inner-circle">
+                          <span id="progress-text">0%</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Inputs hidden -->
+                    <input type="hidden" id="progress-brown" value="100" />
+                    <!-- Para la barra exterior (café) -->
+                    <input type="hidden" id="progress-aqua" value="76" />
+                    <!-- Para la barra interior (verde agua) -->
+
+                    <p class="heading-label">
+                      <span class="brown-circle heading-circle"></span>
+                      Collateral Value
+                    </p>
+                    <h2 class="asset-title">
+                      $60,000 <span class="asset-type">USD</span>
+                    </h2>
+
+                    <p class="heading-label">
+                      <span class="blue-light-circle heading-circle"></span>
+                      Loan Value
+                    </p>
+                    <h2 class="asset-title">
+                      $40,000 <span class="asset-type">SUSD</span>
+                    </h2>
+                  </div>
                 </div>
                 <div class="step" id="step2">
                   <h2>Caja 2</h2>

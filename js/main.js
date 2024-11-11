@@ -219,3 +219,85 @@ if (document.getElementById("slider2")) {
 if (document.getElementById("initialBox")) {
   document.getElementById("initialBox").classList.add("active");
 }
+
+//SIMULATION CONTAINER
+let currentStep = 1;
+
+function showStep(step) {
+  // Esconder todas las cajas
+  const steps = document.querySelectorAll(".step");
+
+  if (steps) {
+    steps.forEach((s) => {
+      s.classList.remove("active");
+    });
+
+    // Mostrar la caja correspondiente
+    const activeStep = document.getElementById("step" + step);
+    if (activeStep) {
+      activeStep.classList.add("active");
+    }
+  }
+}
+
+function navigate(direction) {
+  currentStep += direction;
+
+  // Ajustar cíclicamente el número de paso
+  if (currentStep > 3) {
+    currentStep = 1;
+  } else if (currentStep < 1) {
+    currentStep = 3;
+  }
+
+  showStep(currentStep);
+}
+
+// Inicializar mostrando la caja 1
+showStep(currentStep);
+
+//PROGRESS BAR
+///////////////////////////
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Referencias de elementos
+  const inputBrown = document.getElementById("progress-brown");
+  const inputAqua = document.getElementById("progress-aqua");
+  const progressText = document.getElementById("progress-text");
+  const outerCircle = document.querySelector(".outer-circle");
+  const innerCircle = document.querySelector(".inner-circle");
+
+  // Obtener valores de los inputs
+  if (inputBrown) {
+    const valueBrown = parseInt(inputBrown.value);
+
+    // Limitar valores entre 0 y 100
+    const brownProgress = Math.min(Math.max(valueBrown, 0), 100);
+
+    // Ajustar colores de progreso usando conic-gradient
+    if (outerCircle) {
+      outerCircle.style.background = `conic-gradient(
+      #8b5a1e 0% ${brownProgress}%, 
+      #080305 ${brownProgress}% 100%
+  )`;
+    }
+  }
+
+  if (inputAqua) {
+    const valueAqua = parseInt(inputAqua.value);
+
+    // Limitar valores entre 0 y 100
+    const aquaProgress = Math.min(Math.max(valueAqua, 0), 100);
+
+    // Actualizar el texto del progreso
+    progressText.textContent = `${valueAqua}%`;
+
+    // Ajustar colores de progreso usando conic-gradient
+    if (innerCircle) {
+      innerCircle.style.background = `conic-gradient(
+        #56becf 0% ${aquaProgress}%, 
+        #ffffff ${aquaProgress}% 100%
+    )`;
+    }
+  }
+});

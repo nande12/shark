@@ -60,6 +60,26 @@
   display: flex;
   margin-bottom: 8px;
   margin-top: 0;
+  font-size: 11px;
+  color: #c6cdce;
+
+  .heading-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    top: 2px;
+    margin-left: 0;
+
+    &.brown-circle {
+      background-color: #935804;
+    }
+
+    &.blue-light-circle {
+      background-color: #56becf;
+    }
+  }
 
   span {
     margin-left: 8px;
