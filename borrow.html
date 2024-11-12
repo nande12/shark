@@ -101,15 +101,20 @@
 
         <div class="content-table">
           <!-- ROWS -->
-          <div class="table-row less-padding">
+          <div class="table-row less-padding borrow-view">
             <div class="row-section">
               <div class="col-row">
                 <div class="top-icons">
                   <div class="currency-icon">
                     <img src="./img/bitcoin.svg" alt="" />
                   </div>
-                  <div class="connected-icon">
-                    <img src="./img/_Dot.svg" /> SUSD Available
+                  <div class="top-icons-right">
+                    <a href=""
+                      >Detailed View <img src="./img/share-icon.svg" alt=""
+                    /></a>
+                    <div class="connected-icon">
+                      <img src="./img/_Dot.svg" /> SUSD Available
+                    </div>
                   </div>
                 </div>
                 <div class="asset-heading">
@@ -153,10 +158,6 @@
                 <h3 class="asset-title title-space">
                   $460 Mn <span class="asset-type">SUSD</span>
                 </h3>
-              </div>
-              <div class="row-ctas">
-                <a href="" class="button tertiary-cta">Details</a>
-                <a href="" class="button primary-cta">Borrow</a>
               </div>
             </div>
           </div>
@@ -438,14 +439,14 @@
                 <p class="info-label">
                   Loan duration* <img src="./img/help-circle.svg" />
                 </p>
-                <div class="dropdown-section no-border">
+                <div class="dropdown-section no-border one-option-select">
                   <div class="dropdown">
                     <div class="dropdown-btn" onclick="toggleDropdown()">
                       <div class="search-container">
                         <input
                           type="text"
                           class="dropdown-search"
-                          placeholder="Search & compare assets"
+                          placeholder="Select an option"
                           oninput="filterOptions(this)"
                           onclick="event.stopPropagation(); toggleDropdown(true);"
                         />
@@ -469,17 +470,17 @@
                       </label>
                       <label class="dropdown-item">
                         180
-                        <span style="margin-left: 8px; color: #aaa">DAYS</span>
+                        <span style="margin-left: 8px; color: #aaa">Days</span>
                         <input type="checkbox" onclick="toggleOption(this)" />
                       </label>
                       <label class="dropdown-item">
                         90
-                        <span style="margin-left: 8px; color: #aaa">DAYS</span>
+                        <span style="margin-left: 8px; color: #aaa">Days</span>
                         <input type="checkbox" onclick="toggleOption(this)" />
                       </label>
                       <label class="dropdown-item">
                         30
-                        <span style="margin-left: 8px; color: #aaa">DAYS</span>
+                        <span style="margin-left: 8px; color: #aaa">Days</span>
                         <input type="checkbox" onclick="toggleOption(this)" />
                       </label>
                     </div>
@@ -537,7 +538,7 @@
                       <span class="brown-circle heading-circle"></span>
                       Collateral Value
                     </p>
-                    <h2 class="asset-title">
+                    <h2 class="asset-title space-between">
                       $60,000 <span class="asset-type">USD</span>
                     </h2>
 
@@ -545,23 +546,148 @@
                       <span class="blue-light-circle heading-circle"></span>
                       Loan Value
                     </p>
-                    <h2 class="asset-title">
+                    <h2 class="asset-title space-between">
                       $40,000 <span class="asset-type">SUSD</span>
                     </h2>
                   </div>
+                  <div class="pager">
+                    <span class="pager-content">Page 1 of 3</span>
+                  </div>
                 </div>
                 <div class="step" id="step2">
-                  <h2>Caja 2</h2>
-                  <p>Contenido de la caja 2</p>
+                  <div class="sim-main">
+                    <p class="heading-label">
+                      Simulation Results
+                      <span><img src="./img/help-circle.svg" alt="" /></span>
+                    </p>
+                    <h2 class="asset-title">Liquidation Risk</h2>
+
+                    <div class="pro-tip">
+                      <h2 class="gradient-title">
+                        <div class="gradient-title-span">
+                          <span>Pro tip:</span>
+                        </div>
+                        <p class="pro-tip-desc">
+                          Increase collateral or decrease borrow amount to
+                          reduce risk.
+                        </p>
+                      </h2>
+                    </div>
+                  </div>
+                  <div class="sim-secondary">
+                    <div class="chart-img">
+                      <img src="./img/_Chart-mini.png" alt="" />
+                      <p class="chart-img-caption">
+                        Drop Needed to Trigger Partial Liquidation
+                      </p>
+                      <p class="chart-img-percentage">-45%</p>
+                    </div>
+
+                    <p class="heading-label">
+                      Partial Liquidation Price
+                      <span><img src="./img/help-circle.svg" alt="" /></span>
+                    </p>
+                    <h2 class="asset-title space-between">
+                      $45,000 <span class="asset-type">Per WBTC</span>
+                    </h2>
+
+                    <p class="heading-label">
+                      6-month Price Low
+                      <span><img src="./img/help-circle.svg" alt="" /></span>
+                    </p>
+                    <h2 class="asset-title space-between">
+                      $38,000 <span class="asset-type">Per WBTC</span>
+                    </h2>
+
+                    <p class="heading-label">
+                      Current Price
+                      <span><img src="./img/help-circle.svg" alt="" /></span>
+                    </p>
+                    <h2 class="asset-title space-between">
+                      $60,000 <span class="asset-type">Per WBTC</span>
+                    </h2>
+                  </div>
+
+                  <div class="pager">
+                    <span class="pager-content">Page 2 of 3</span>
+                  </div>
                 </div>
                 <div class="step" id="step3">
-                  <h2>Caja 3</h2>
-                  <p>Contenido de la caja 3</p>
+                  <div class="sim-main">
+                    <p class="heading-label">
+                      Simulation Results
+                      <span><img src="./img/help-circle.svg" alt="" /></span>
+                    </p>
+                    <h2 class="asset-title">Loan Interest</h2>
+
+                    <div class="pro-tip">
+                      <h2 class="gradient-title">
+                        <div class="gradient-title-span">
+                          <span>Pro tip:</span>
+                        </div>
+                        <p class="pro-tip-desc">
+                          The longer the loan duration, the less interest you’ll
+                          pay. Locking CHUM further reduces interest and gives
+                          you more flexibility around interest payments.
+                        </p>
+                      </h2>
+                    </div>
+                  </div>
+                  <div class="sim-secondary">
+                    <div class="chart-img">
+                      <img src="./img/_Step icon base.png" alt="" />
+                      <p class="chart-img-caption">
+                        Preferential terms selected, you will need to lock
+                        <span><img src="./img/help-circle.svg" alt="" /></span>
+                      </p>
+                      <p class="chart-img-percentage">10,000 CHUM</p>
+                    </div>
+
+                    <p class="heading-label">
+                      Interest Rate
+                      <span><img src="./img/help-circle.svg" alt="" /></span>
+                    </p>
+                    <h2 class="asset-title space-between">
+                      3% <span class="asset-type">Per Annum</span>
+                    </h2>
+
+                    <p class="heading-label">
+                      Total Interest
+                      <span><img src="./img/help-circle.svg" alt="" /></span>
+                    </p>
+                    <h2 class="asset-title space-between">
+                      $1,200 <span class="asset-type">SUSD</span>
+                    </h2>
+
+                    <p class="heading-label">
+                      Interest Payment Frequency
+                      <span><img src="./img/help-circle.svg" alt="" /></span>
+                    </p>
+                    <h2 class="asset-title space-between">
+                      Quarterly <span class="asset-type">90 Days</span>
+                    </h2>
+                  </div>
+
+                  <div class="pager">
+                    <span class="pager-content">Page 3 of 3</span>
+                  </div>
                 </div>
 
                 <div class="navigation">
-                  <button id="prevBtn" onclick="navigate(-1)">Anterior</button>
-                  <button id="nextBtn" onclick="navigate(1)">Siguiente</button>
+                  <button
+                    id="prevBtn"
+                    class="navigation-btn"
+                    onclick="navigate(-1)"
+                  >
+                    <img src="./img/arrow-narrow-left.svg" alt="Previous" />
+                  </button>
+                  <button
+                    id="nextBtn"
+                    class="navigation-btn"
+                    onclick="navigate(1)"
+                  >
+                    <img src="./img/arrow-narrow-right.svg" alt="Next" />
+                  </button>
                 </div>
               </div>
             </div>

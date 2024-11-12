@@ -35,6 +35,21 @@
     margin-bottom: 20px;
   }
 
+  .top-icons-right {
+    a {
+      display: flex;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      color: #c6cdce;
+      margin-bottom: 15px;
+
+      img {
+        margin-left: 8px;
+      }
+    }
+  }
+
   .connected-icon {
     background-color: #fdfffe;
     border: solid 1px $color-text-secondary;
@@ -97,6 +112,12 @@
   font-weight: 600;
   margin-bottom: 20px;
 
+  &.space-between {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -140,6 +161,25 @@
       &.row-sectio-two-cols {
         flex-direction: row;
         justify-content: space-between;
+      }
+    }
+
+    &.borrow-view {
+      .asset-title {
+        display: flex;
+        justify-content: space-between;
+
+        .asset-type {
+          top: 0;
+        }
+      }
+
+      .row-section:last-child {
+        flex: 1;
+
+        .row-info {
+          width: 100%;
+        }
       }
     }
 

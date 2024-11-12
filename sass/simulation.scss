@@ -26,17 +26,33 @@
     flex-direction: column;
   }
 
+  .pager {
+    width: calc(100% - 40px);
+  }
+
   .navigation {
     margin-top: 0;
     position: absolute;
     z-index: 100;
     bottom: 20px;
+    width: calc(100% - 40px);
+    display: flex;
+    justify-content: space-between;
+
+    .navigation-btn {
+      border: solid 1px #738688;
+      border-radius: 8px;
+      padding: 8px;
+      background-color: transparent;
+      cursor: pointer;
+    }
   }
 
   .sim-main {
     height: 100%;
     display: flex;
     flex-direction: column;
+    padding-bottom: 40px;
   }
 
   .pro-tip {
@@ -44,9 +60,10 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    padding-right: 20px;
 
     .gradient-title {
-      max-width: 310px;
+      max-width: 320px;
     }
 
     .gradient-title-span {
@@ -68,7 +85,8 @@
   width: 311px;
   height: 311px;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  margin-top: 10px;
 }
 
 .outer-circle {
@@ -123,13 +141,63 @@
     }
 
     .sim-main {
-      width: 55%;
+      width: 60%;
     }
 
     .sim-secondary {
-      width: 45%;
+      width: 40%;
       padding-left: 20px;
       border-left: solid 1px #738688;
     }
+
+    .pager,
+    .navigation {
+      width: calc(60% - 40px);
+    }
+  }
+}
+
+.pager {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+
+  .pager-content {
+    font-size: 18px;
+    font-weight: 500;
+    color: #738688;
+  }
+}
+
+.chart-img {
+  padding-top: 40px;
+  text-align: center;
+  padding-bottom: 70px;
+
+  img {
+    margin: 0 auto 28px;
+  }
+
+  .chart-img-caption {
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+
+    span {
+      margin-left: 8px;
+
+      img {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .chart-img-percentage {
+    font-size: 29px;
+    font-weight: 600;
+    margin: 0;
   }
 }

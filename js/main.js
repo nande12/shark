@@ -73,6 +73,7 @@ document.querySelectorAll(".dropdown").forEach((dropdown) => {
       checkbox.checked = false;
     });
     clearSelectionBtn.classList.remove("show");
+    searchInput.value = ""; // Limpiar el valor del input
   });
 
   // Mostrar "Clear Selection" si hay opciones seleccionadas
@@ -83,18 +84,44 @@ document.querySelectorAll(".dropdown").forEach((dropdown) => {
       clearSelectionBtn.classList.toggle("show", anyChecked);
     });
   });
-});
 
-// Cerrar dropdown al hacer clic fuera
-document.addEventListener("click", (event) => {
-  document.querySelectorAll(".dropdown-content").forEach((content) => {
-    if (!content.closest(".dropdown").contains(event.target)) {
-      content.classList.remove("show");
-      content
-        .closest(".dropdown")
-        .querySelector(".dropdown-btn")
-        .classList.remove("active");
-    }
+  const cleanText = (text) => {
+    return text.replace(/\s+/g, " ").trim();
+  };
+
+  // Lógica para selección única cuando tiene la clase 'one-option-select'
+  const isOneOptionSelect = dropdown
+    .closest(".dropdown-section")
+    .classList.contains("one-option-select");
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("click", (event) => {
+      if (isOneOptionSelect) {
+        // Deseleccionar todos los checkboxes excepto el seleccionado
+        checkboxes.forEach((cb) => {
+          if (cb !== checkbox) cb.checked = false;
+        });
+
+        // Mostrar la opción seleccionada en el input de búsqueda
+        const selectedItem = checkbox.closest(".dropdown-item");
+        searchInput.value = checkbox.checked
+          ? cleanText(selectedItem.textContent)
+          : "";
+      }
+    });
+  });
+
+  // Cerrar dropdown al hacer clic fuera
+  document.addEventListener("click", (event) => {
+    document.querySelectorAll(".dropdown-content").forEach((content) => {
+      if (!content.closest(".dropdown").contains(event.target)) {
+        content.classList.remove("show");
+        content
+          .closest(".dropdown")
+          .querySelector(".dropdown-btn")
+          .classList.remove("active");
+      }
+    });
   });
 });
 
