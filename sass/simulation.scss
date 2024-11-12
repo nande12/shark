@@ -16,6 +16,7 @@
     transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
     padding: 20px;
     display: flex;
+    padding-bottom: 150px;
   }
 
   .step.active {
@@ -24,6 +25,7 @@
     transition: opacity 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
   .pager {
@@ -82,8 +84,8 @@
 // PORGRESS BAR
 .progress-container {
   position: relative;
-  width: 311px;
-  height: 311px;
+  width: 180px;
+  height: 180px;
   margin: auto;
   margin-bottom: 40px;
   margin-top: 10px;
@@ -136,8 +138,13 @@
 
 @media screen and (min-width: 1200px) {
   .simulation-box {
+    .step {
+      padding-bottom: 0;
+    }
+
     .step.active {
       flex-direction: row;
+      position: absolute;
     }
 
     .sim-main {
@@ -150,16 +157,25 @@
       border-left: solid 1px #738688;
     }
 
+    .pager {
+      bottom: 30px;
+    }
+
     .pager,
     .navigation {
       width: calc(60% - 40px);
     }
   }
+
+  .progress-container {
+    width: 311px;
+    height: 311px;
+  }
 }
 
 .pager {
   position: absolute;
-  bottom: 30px;
+  bottom: 12px;
   display: flex;
   justify-content: center;
 
@@ -199,5 +215,18 @@
     font-size: 29px;
     font-weight: 600;
     margin: 0;
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: solid 1px #738688;
+  margin-bottom: 20px;
+
+  a {
+    text-decoration: none;
   }
 }

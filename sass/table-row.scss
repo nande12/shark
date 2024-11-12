@@ -195,3 +195,25 @@
     margin-top: 0;
   }
 }
+
+.tooltip {
+  position: relative;
+
+  .tooltip-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    padding: 16px;
+    border-radius: 8px;
+    border: solid 1px #738688;
+    bottom: 15px;
+    left: -20px;
+    width: 250px;
+  }
+
+  &:hover {
+    .tooltip-content {
+      display: block;
+    }
+  }
+}
