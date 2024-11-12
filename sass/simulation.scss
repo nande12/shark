@@ -151,6 +151,7 @@
   .simulation-box {
     .step {
       padding-bottom: 0;
+      flex-direction: row;
     }
 
     .step.active {
